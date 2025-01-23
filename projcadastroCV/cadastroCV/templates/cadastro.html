@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/cadastro.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+    <title>Cadastro 2</title>
+</head>
+<body>
+
+    <div class="blocoprincipal">
+    
+      <div class="bloco-cor">
+        <div class="titulo_colorido">
+          <h1 class="bloco-login-mensagem">Cadastre seu currículo</h1>
+        </div>
+      </div>
+
+      <div class="bloco_cadastro">
+
+        <div class="container-formulario">
+          <form class="formulario">
+            <div class="campos">
+              <input
+                class="icon-usuario"
+                type="text"
+                id="nome"
+                placeholder="Nome"
+                name="nome"
+                required
+              />
+            </div>
+            
+            <div class="campos">
+              <input
+                class="icon-senha"
+                type="text"
+                id="senha"
+                placeholder="E-mail"
+                name="email"
+                required
+              />
+            </div>
+
+            <div class="campos">
+              <input
+                class="icon-senha"
+                type="text"
+                id="telefone"
+                placeholder="Telefone"
+                name="telefone"
+                required
+              />
+            </div>
+
+            <div class="campos">
+              <input
+                class="icon-senha"
+                type="text"
+                id="cargo"
+                placeholder="Cargo desejado"
+                name="cargo"
+                required
+              />
+            </div>
+
+            <div class="campos">
+              <form action="#">
+                <div class="file-field input-field">
+                    <div class="btn">
+                    <span>Arquivo</span>
+                    <input type="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="campos">
+              <div class="input-field">
+                <select>
+                    <option value="" disabled selected>Escolaridade</option>
+                    <option value="1">Ensino médio incompleto</option>
+                    <option value="2">Ensino médio completo</option>
+                    <option value="3">Superior incompleto</option>
+                    <option value="4">Superior completo</option>
+                </select>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+                <script>
+                  $(document).ready(function(){
+                    $('select').formSelect();
+                  });
+                </script>
+            </div>
+
+            <div class="campos">
+              <input
+                class="icon-senha"
+                type="text"
+                id="obs"
+                placeholder="Observações"
+                name="obs"
+                required
+              />
+            </div>
+        
+          <button type="submit" class="btn-env">Enviar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
