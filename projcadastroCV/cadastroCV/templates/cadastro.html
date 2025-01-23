@@ -22,9 +22,12 @@
       </div>
 
       <div class="bloco_cadastro">
-
+        
         <div class="container-formulario">
-          <form class="formulario">
+
+          <form class="formulario" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
             <div class="campos">
               <input
                 class="icon-usuario"
@@ -32,8 +35,10 @@
                 id="nome"
                 placeholder="Nome"
                 name="nome"
+                value="{{ form.nome.value|default:'' }}"
                 required
               />
+              {{ form.nome.errors }}
             </div>
             
             <div class="campos">
@@ -43,8 +48,10 @@
                 id="senha"
                 placeholder="E-mail"
                 name="email"
+                value="{{ form.email.value|default:'' }}"
                 required
               />
+              {{ form.email.errors }}
             </div>
 
             <div class="campos">
@@ -54,8 +61,10 @@
                 id="telefone"
                 placeholder="Telefone"
                 name="telefone"
+                value="{{ form.telefone.value|default:'' }}"
                 required
               />
+              {{ form.telefone.errors }}
             </div>
 
             <div class="campos">
@@ -65,41 +74,38 @@
                 id="cargo"
                 placeholder="Cargo desejado"
                 name="cargo"
+                value="{{ form.cargo.value|default:'' }}"
                 required
               />
+              {{ form.cargo.errors }}
             </div>
 
             <div class="campos">
-              <form action="#">
-                <div class="file-field input-field">
-                    <div class="btn">
-                    <span>Arquivo</span>
-                    <input type="file">
+              <div class="file-field input-field">
+                  <div class="btn">
+                      <span>Arquivo</span>
+                      {{ form.arquivo }}
                   </div>
                   <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
+                      <input class="file-path validate" type="text" placeholder="Selecione um arquivo">
                   </div>
-                </div>
-              </form>
-            </div>
+                  {{ form.arquivo.errors }}
+              </div>
+          </div>
 
             <div class="campos">
               <div class="input-field">
-                <select>
-                    <option value="" disabled selected>Escolaridade</option>
-                    <option value="1">Ensino médio incompleto</option>
-                    <option value="2">Ensino médio completo</option>
-                    <option value="3">Superior incompleto</option>
-                    <option value="4">Superior completo</option>
-                </select>
+                {{ form.escolaridade }}
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                      var elems = document.querySelectorAll('select');
+                      var instances = M.FormSelect.init(elems, {}); 
+                    })
+                </script>
 
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-                <script>
-                  $(document).ready(function(){
-                    $('select').formSelect();
-                  });
-                </script>
+                {{ form.escolaridade.errors}}
             </div>
 
             <div class="campos">
@@ -109,11 +115,14 @@
                 id="obs"
                 placeholder="Observações"
                 name="obs"
+                value="{{ form.obs.value|default:'' }}"
                 required
               />
+              {{ form.obs.errors }}
             </div>
         
-          <button type="submit" class="btn-env">Enviar</button>
+            <a> <button type="submit" class="btn-env">Enviar</button></a>
+          </form>
           </div>
         </div>
       </div>
