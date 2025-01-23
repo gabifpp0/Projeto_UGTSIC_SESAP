@@ -5,19 +5,19 @@ from django.core.exceptions import ValidationError
 
 class Formulario(models.Model):
     ops_escolaridade = [
-        "Ensino médio incompleto",
-        "Ensino médio completo",
-        "Ensino superior incompleto",
-        "Ensino superior completo"
+        ("ensino_medio_incompleto","Ensino médio incompleto"),
+        ("ensino_medio_completo","Ensino médio completo"),
+        ("ensino_superior_incompleto","Ensino superior incompleto"),
+        ("ensino_superior_completo","Ensino superior completo"),
     ]
     
-    nome = models.CharField(max_length=15,verbose_name="Nome")
-    email = models.EmailField(verbose_name="E-mail")
-    telefone = models.CharField(max_length=20,verbose_name="Telefone")
-    cargo = models.CharField(max_length=100, verbose_name="Cargo desejado")
-    escolaridade = models.CharField(max_length=25, choices=ops_escolaridade)
-    obs = models.CharField(max_length=150, verbose_name="Observações")
-    arquivo = models.FileField(upload_to='uploads/')
+    nome = models.CharField(max_length=15,verbose_name="Nome",blank=False)
+    email = models.EmailField(verbose_name="E-mail", blank=False)
+    telefone = models.CharField(max_length=20,verbose_name="Telefone", blank=False)
+    cargo = models.CharField(max_length=100, verbose_name="Cargo desejado",blank=False)
+    escolaridade = models.CharField(max_length=50,choices=ops_escolaridade, blank=False)
+    obs = models.CharField(max_length=150, verbose_name="Observações", blank=True)
+    arquivo = models.FileField(upload_to='uploads/', blank=False)
 
     def tamanho_arquivo(file):
         max_tamanho = 1
