@@ -3,15 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/cadastro.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
-    
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
     <title>Cadastro 2</title>
-</head>
-<body>
+  </head>
+  <body>
 
     <div class="blocoprincipal">
     
@@ -29,11 +27,11 @@
             {% csrf_token %}
 
             <div class="campos">
+              <label for="nome">Nome</label>
               <input
                 class="icon-usuario"
                 type="text"
                 id="nome"
-                placeholder="Nome"
                 name="nome"
                 value="{{ form.nome.value|default:'' }}"
                 required
@@ -42,11 +40,11 @@
             </div>
             
             <div class="campos">
+              <label for="email">E-mail</label>
               <input
                 class="icon-senha"
-                type="text"
-                id="senha"
-                placeholder="E-mail"
+                type="email"
+                id="email"
                 name="email"
                 value="{{ form.email.value|default:'' }}"
                 required
@@ -55,11 +53,11 @@
             </div>
 
             <div class="campos">
+              <label for="telefone">Telefone</label>
               <input
                 class="icon-senha"
-                type="text"
+                type="tel"
                 id="telefone"
-                placeholder="Telefone"
                 name="telefone"
                 value="{{ form.telefone.value|default:'' }}"
                 required
@@ -68,11 +66,11 @@
             </div>
 
             <div class="campos">
+              <label for="cargo">Cargo Desejado</label>
               <input
                 class="icon-senha"
                 type="text"
                 id="cargo"
-                placeholder="Cargo desejado"
                 name="cargo"
                 value="{{ form.cargo.value|default:'' }}"
                 required
@@ -81,50 +79,52 @@
             </div>
 
             <div class="campos">
+              <label for="curriculo">Currículo</label>
               <div class="file-field input-field">
                   <div class="btn">
-                      <span>Arquivo</span>
-                      {{ form.arquivo }}
-                  </div>
-                  <div class="file-path-wrapper">
-                      <input class="file-path validate" type="text" placeholder="Selecione um arquivo">
-                  </div>
-                  {{ form.arquivo.errors }}
+                  <span>Arquivo</span>
+                  {{ form.arquivo }}
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" placeholder="Selecione um arquivo">
+                </div>
+                {{ form.arquivo.errors }}
               </div>
-          </div>
-
-            <div class="campos">
-              <div class="input-field">
-                {{ form.escolaridade }}
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                      var elems = document.querySelectorAll('select');
-                      var instances = M.FormSelect.init(elems, {}); 
-                    })
-                </script>
-
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-                {{ form.escolaridade.errors}}
             </div>
 
             <div class="campos">
+              <label for="escolaridade">Escolaridade</label>
+              <div class="input-field">
+                {{ form.escolaridade }}
+                {{ form.escolaridade.errors }}
+              </div>
+            </div>
+
+            <div class="campos-obs">
+              <label for="obs">Observações</label>
               <input
                 class="icon-senha"
                 type="text"
                 id="obs"
-                placeholder="Observações"
                 name="obs"
                 value="{{ form.obs.value|default:'' }}"
               />
               {{ form.obs.errors }}
             </div>
         
-            <a> <button type="submit" class="btn-env">Enviar</button></a>
+            <button type="submit" class="btn-env">Enviar</button>
           </form>
-          </div>
         </div>
       </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, {}); 
+      });
+    </script>
   </body>
 </html>

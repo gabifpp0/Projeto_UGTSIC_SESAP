@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Montserrat-Regular";
   src: url("../assets/fonts/Montserrat-Regular.ttf") format("truetype");
-  font-weight: 400;
+  font-weight: 400; /* Peso normal */
   font-style: normal;
 }
 
@@ -20,21 +20,18 @@ body {
   align-content: center;
 }
 
-p,
+label{
+  font-size: 40px;
+  color: #545454;
+  font-weight: bold;
+}
+
 h1,
-h2,
-h3,
-a,
 span,
 form,
 input {
   margin: 0;
   font-family: "Montserrat-Regular", sans-serif;
-}
-
-a {
-  color: #000000;
-  text-decoration: none;
 }
 
 .btn{
@@ -47,18 +44,17 @@ a {
   position: relative;
   max-width: 1200px;
   gap: 5px;
-  padding: 40;
 }
 
 .bloco_cadastro {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 624px;
+  height: 724px;
   width: 796px;
   padding: 5px 55px;
   border-radius: 11px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);                               
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .bloco-login-mensagem {
@@ -66,13 +62,13 @@ a {
   font-size: xx-large;
   font-family: "Montserrat-Bold", sans-serif;
   place-self: flex-start;
+  color: #3DACDD;
+  font-size: 48px;
 }
-
 
 .btn-env{
   font-family: "Montserrat-Bold", sans-serif;
   display: block;
-  grid-column: 1 / -1;
   width: 40%;
   padding: 15px 40px;
   border-radius: 7px;
@@ -81,16 +77,24 @@ a {
   color: #ffffff;
   cursor: pointer;
   font-size: large;
+  margin: 20px auto 0; /* Centraliza o botão e adiciona margem superior */
 }
 
 .bloco-cor {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   background: rgb(183,229,249);
   background: linear-gradient(180deg, rgba(183,229,249,1) 14%, rgba(44,165,217,1) 100%);
-  height: 624px;
+  height: 724px;
   width: 429px;
   border-radius: 11px;
+}
+
+.logo{
+  display: flex;
+  align-items: flex-end;
+  color: #B7E5F9;
+  font-size: 50px; /* Corrigido o tamanho da fonte, 5018px parece ser um erro */
 }
 
 .titulo_colorido{
@@ -115,7 +119,17 @@ a {
 }
 
 .formulario {
-  display: grid;
-  
-  gap: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.campos {
+  flex: 0 1 45%;
+  margin-bottom: 25px;
+}
+
+.campos-obs {
+  flex: 1 1 100%;
+  margin-bottom: 25px;
 }
