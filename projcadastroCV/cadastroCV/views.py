@@ -14,3 +14,7 @@ def index(request):
     else:
         form = FormularioForm()  #
     return render(request, 'cadastro.html', {'form': form})
+
+def inscricoes(request):
+    curriculos = Formulario.objects.all()
+    return render(request, 'tabela.html' ,{'curriculos': curriculos})

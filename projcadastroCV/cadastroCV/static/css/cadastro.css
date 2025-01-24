@@ -77,7 +77,7 @@ input {
   color: #ffffff;
   cursor: pointer;
   font-size: large;
-  margin: 20px auto 0; /* Centraliza o botão e adiciona margem superior */
+  margin: 20px auto 0; 
 }
 
 .bloco-cor {
@@ -94,7 +94,7 @@ input {
   display: flex;
   align-items: flex-end;
   color: #B7E5F9;
-  font-size: 50px; /* Corrigido o tamanho da fonte, 5018px parece ser um erro */
+  font-size: 50px;
 }
 
 .titulo_colorido{

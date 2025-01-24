@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/tabela.css' %}">
+    <title>Incrições</title>
+</head>
+<body>
+    <div class="container has-text-centered">
+        <h1 class="title is-3">Lista de Inscrições</h1>
+    
+        <table class="ui celled table">
+            <thead>
+                <tr class="is-hoverable">
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Cargo</th>
+                    <th>Currículo</th>
+                    <th>Escolaridade</th>
+                    <th>Observações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for curriculo in curriculos %}
+                    <tr class="is-hoverable">
+                        <td>{{ curriculo.nome }}</a></td>
+                        <td>{{ curriculo.email }}</td>
+                        <td>{{ curriculo.telefone }}</td>
+                        <td>{{ curriculo.cargo }}</td>
+                        <td><a href="{{ curriculo.arquivo.url }}">Baixar currículo</a></td>
+                        <td>{{ curriculo.escolaridade }}</td>
+                        <td>{{ curriculo.obs }}</td>
+                    </tr>
+                {% empty %}
+                    <tr class="is-hoverable">
+                        <td colspan="3">Nenhuma inscrição.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
