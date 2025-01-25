@@ -1,5 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpRequest
+from django.shortcuts import render
 from .models import Formulario
 from .forms import FormularioForm
 
@@ -12,7 +11,7 @@ def cadastro(request):
             form.save()
             return render(request, 'cadastro.html', {'form': FormularioForm(), 'success_message': 'Cadastro realizado com sucesso!'})
     else:
-        form = FormularioForm()  #
+        form = FormularioForm()
     return render(request, 'cadastro.html', {'form': form})
 
 def inscricoes(request):
