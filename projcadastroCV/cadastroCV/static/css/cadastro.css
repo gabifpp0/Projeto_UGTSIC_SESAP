@@ -16,6 +16,7 @@ body {
   background-color: #F4F4F8;
   width: 100vw;
   height: 100vh;
+  display: flex;
   justify-items: center;
   align-content: center;
 }
@@ -43,6 +44,7 @@ input {
   grid-template-columns: 1fr 1fr;
   position: relative;
   max-width: 1200px;
+  width: 100%;
   gap: 5px;
 }
 
@@ -51,7 +53,7 @@ input {
   flex-direction: column;
   justify-content: center;
   height: 724px;
-  width: 796px;
+  max-width: 796px;
   padding: 5px 55px;
   border-radius: 11px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -86,7 +88,7 @@ input {
   background: rgb(183,229,249);
   background: linear-gradient(180deg, rgba(183,229,249,1) 14%, rgba(44,165,217,1) 100%);
   height: 724px;
-  width: 429px;
+  max-width: 429px;
   border-radius: 11px;
 }
 
@@ -116,6 +118,7 @@ input {
 .container-formulario {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .formulario {

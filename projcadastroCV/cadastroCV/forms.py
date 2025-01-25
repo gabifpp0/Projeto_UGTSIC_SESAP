@@ -24,9 +24,9 @@ class FormularioForm(forms.ModelForm):
             
             return arquivo
         except AttributeError:
-            raise forms.ValidationError('Nenhum arquivo foi fornecido')
+            raise forms.ValidationError('Só são aceito os formatos doc, docx ou pdf')
         except Exception as e:
-            raise forms.ValidationError('erro ao validar')
+            raise forms.ValidationError('Erro ao validar')
         
     def clean_telefone(self):
         telefone = self.cleaned_data['telefone']
