@@ -5,7 +5,7 @@ from .forms import FormularioForm
 
 # Create your views here.
 
-def index(request):
+def cadastro(request):
     if request.method == 'POST':
         form = FormularioForm(request.POST, request.FILES)
         if form.is_valid():
@@ -18,3 +18,6 @@ def index(request):
 def inscricoes(request):
     curriculos = Formulario.objects.all()
     return render(request, 'tabela.html' ,{'curriculos': curriculos})
+
+def home(request):
+    return render(request, 'index.html')
