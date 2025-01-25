@@ -24,7 +24,7 @@ class FormularioForm(forms.ModelForm):
             
             return arquivo
         except AttributeError:
-            raise forms.ValidationError('Só são aceito os formatos doc, docx ou pdf')
+            raise forms.ValidationError('Só são aceitos os formatos doc, docx ou pdf.')
         except Exception as e:
             raise forms.ValidationError('Erro ao validar')
         
@@ -44,3 +44,4 @@ class FormularioForm(forms.ModelForm):
             raise forms.ValidationError(f"Erro na validação do formato do telefone: {str(e)}")
         except Exception as e:
             raise forms.ValidationError(f"{str(e)}")
+ 
