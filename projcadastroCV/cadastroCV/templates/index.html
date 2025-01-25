@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
   <title>Home</title>
 </head>
 <body>
@@ -28,17 +29,19 @@
     <div class="options">
       
       <div class="option selected">
-        <a href="{% url 'cadastroCV'}"
-        <div class="icon">📄</div>
-        <h2>Novo currículo</h2>
-        <p>Cadastre aqui seu currículo!</p>
-      </a>
+        <a href="{% url 'cadastro' %}">
+            <div class="icon">📄</div>
+            <h2>Novo currículo</h2>
+            <p>Cadastre aqui seu currículo!</p>
+        </a>
       </div>
 
       <div class="option">
-        <div class="icon">📊</div>
-        <h2>Currículo cadastrados</h2>
-        <p>Veja aqui a relação de currículos cadastrados!</p>
+        <a href="{% url 'inscricoes' %}">
+            <div class="icon">📊</div>
+            <h2>Currículo cadastrados</h2>
+            <p>Veja aqui a relação de currículos cadastrados!</p>
+        </a>
       </div>
 
     </div>
