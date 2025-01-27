@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-from django.utils.timezone import now
+from django.utils import timezone
 
 # Create your models here.
 
@@ -19,7 +19,8 @@ class Formulario(models.Model):
     escolaridade = models.CharField(max_length=50,choices=ops_escolaridade, blank=False)
     obs = models.CharField(max_length=150, verbose_name="Observações", blank=True)
     arquivo = models.FileField(upload_to='uploads/', blank=False)
-    ip = models.GenericIPAddressField(protocol='both', unpack_ipv4=True, default='0.0.0.0')
-    
+    ip = models.GenericIPAddressField(verbose_name="IP do Usuário", blank=True, null=True)
+    data_envio = models.DateTimeField(verbose_name="Data e Hora do Envio", default=timezone.now)
+
     def __str__(self):
         return self.nome

@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from .models import Formulario
 from .forms import FormularioForm
-from django.conf import settings
+from django.utils import timezone
+import socket
 
 # Create your views here.
 
@@ -15,8 +16,15 @@ def cadastro(request):
     if request.method == 'POST':
         form = FormularioForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
             
+            formulario = form.save(commit=False)
+
+            formulario.ip_usuario = request.META.get('REMOTE_ADDR')
+
+            formulario.data_envio = timezone.now()
+
+            formulario.save()
+
             return render(request, 'cadastro.html', {'form': FormularioForm(), 'success_message': 'Cadastro realizado com sucesso!'})
     else:
         form = FormularioForm()
