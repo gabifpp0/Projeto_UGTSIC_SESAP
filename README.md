@@ -35,6 +35,7 @@ No terminal digite os seguintes comandos:
 No terminal digite os seguintes comandos:
 
 - cd Projeto_UGTSIC_SESAP
+- ativar o venv: venv\Scripts\activate
 - cd projcadastroCV
 - py manage.py migrate
 - py manage.py runserver
