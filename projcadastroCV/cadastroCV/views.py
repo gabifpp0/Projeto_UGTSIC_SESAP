@@ -18,11 +18,8 @@ def cadastro(request):
         if form.is_valid():
             
             formulario = form.save(commit=False)
-
-            formulario.ip_usuario = request.META.get('REMOTE_ADDR')
-
-            formulario.data_envio = timezone.now()
-
+            formulario.ip = request.META.get('REMOTE_ADDR')
+            formulario.dh = timezone.now()
             formulario.save()
 
             return render(request, 'cadastro.html', {'form': FormularioForm(), 'success_message': 'Cadastro realizado com sucesso!'})

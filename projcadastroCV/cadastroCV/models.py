@@ -20,7 +20,7 @@ class Formulario(models.Model):
     obs = models.CharField(max_length=150, verbose_name="Observações", blank=True)
     arquivo = models.FileField(upload_to='uploads/', blank=False)
     ip = models.GenericIPAddressField(verbose_name="IP do Usuário", blank=True, null=True)
-    data_envio = models.DateTimeField(verbose_name="Data e Hora do Envio", default=timezone.now)
+    dh = models.DateTimeField(verbose_name="Data e Hora do Envio", default=timezone.now)
 
     def __str__(self):
         return self.nome

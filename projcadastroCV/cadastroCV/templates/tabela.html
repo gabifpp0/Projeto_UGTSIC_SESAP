@@ -39,7 +39,7 @@
                         <td>{{ curriculo.escolaridade }}</td>
                         <td>{{ curriculo.obs }}</td>
                         <td>{{ curriculo.ip }}</td>
-                        <td>{{ curriculo.dh }}</td>
+                        <td>{{ curriculo.dh|date:"d/m/Y H:i" }}</td>
                     </tr>
                 {% empty %}
                     <tr class="is-hoverable">
