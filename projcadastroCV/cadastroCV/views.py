@@ -16,6 +16,7 @@ def cadastro(request):
         form = FormularioForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            
             return render(request, 'cadastro.html', {'form': FormularioForm(), 'success_message': 'Cadastro realizado com sucesso!'})
     else:
         form = FormularioForm()
@@ -26,5 +27,5 @@ def inscricoes(request):
     return render(request, 'tabela.html' ,{'curriculos': curriculos})
 
 def email(request):
-    send_mail('Assunto', 'Esse é o enail', 'oioioigabi3@gmail.com', ['gabriellepereira036@gmail.com'])
+    
     return HttpResponse('Olá')

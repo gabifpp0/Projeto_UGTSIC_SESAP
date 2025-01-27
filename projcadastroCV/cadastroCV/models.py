@@ -18,6 +18,9 @@ class Formulario(models.Model):
     escolaridade = models.CharField(max_length=50,choices=ops_escolaridade, blank=False)
     obs = models.CharField(max_length=150, verbose_name="Observações", blank=True)
     arquivo = models.FileField(upload_to='uploads/', blank=False)
+    ip = models.GenericIPAddressField()
+    
+
 
     def __str__(self):
         return self.nome
