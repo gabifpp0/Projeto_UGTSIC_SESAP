@@ -1,8 +1,15 @@
-from django.shortcuts import render
+import os
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.core.mail import send_mail
 from .models import Formulario
 from .forms import FormularioForm
+from django.conf import settings
 
 # Create your views here.
+
+def home(request):
+    return render(request, 'index.html')
 
 def cadastro(request):
     if request.method == 'POST':
@@ -18,5 +25,6 @@ def inscricoes(request):
     curriculos = Formulario.objects.all()
     return render(request, 'tabela.html' ,{'curriculos': curriculos})
 
-def home(request):
-    return render(request, 'index.html')
+def email(request):
+    send_mail('Assunto', 'Esse é o enail', 'oioioigabi3@gmail.com', ['gabriellepereira036@gmail.com'])
+    return HttpResponse('Olá')

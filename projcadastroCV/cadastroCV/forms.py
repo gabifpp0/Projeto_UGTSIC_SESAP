@@ -1,6 +1,6 @@
 from django import forms
 from .models import Formulario
-import re
+import re, os
 
 class FormularioForm(forms.ModelForm):
     class Meta:
@@ -15,22 +15,29 @@ class FormularioForm(forms.ModelForm):
         
         try:
             if arquivo:
+                # Verificar o tamanho do arquivo
                 if arquivo.size > 1 * 1024 * 1024:
                     raise forms.ValidationError('O arquivo excede o tamanho esperado - 1MB')
-            
-                valido = ('.docx', '.doc', '.pdf')
-                if not arquivo.name.lower.endswith(valido):
-                    raise forms.ValidationError('Apenas arquivos doc, docx são permitidos')
+                
+                # Verificar a extensão do arquivo
+                ext = os.path.splitext(arquivo.name)[1]
+                valid_extensions = ['.docx', '.doc', '.pdf']
+                if not ext.lower() in valid_extensions:
+                    raise forms.ValidationError('Apenas arquivos doc, docx ou pdf são permitidos')
             
             return arquivo
         except AttributeError:
-            raise forms.ValidationError('Só são aceitos os formatos doc, docx ou pdf.')
+            # Este erro ocorre se 'arquivo' for None ou não tiver o atributo 'size' ou 'name'
+            raise forms.ValidationError('Nenhum arquivo foi enviado ou o arquivo é inválido.')
         except Exception as e:
-            raise forms.ValidationError('Erro ao validar')
+            # Captura qualquer outra exceção e fornece uma mensagem genérica
+            raise forms.ValidationError(f'Erro ao validar o arquivo: {str(e)}')
         
+    #Validação telefone
     def clean_telefone(self):
         telefone = self.cleaned_data['telefone']
         
+
         try:
             numeros = re.sub(r'\D', '', telefone)
 
@@ -44,4 +51,6 @@ class FormularioForm(forms.ModelForm):
             raise forms.ValidationError(f"Erro na validação do formato do telefone: {str(e)}")
         except Exception as e:
             raise forms.ValidationError(f"{str(e)}")
- 
+
+class EmailForm(forms.Form):
+    email = forms.EmailField()
