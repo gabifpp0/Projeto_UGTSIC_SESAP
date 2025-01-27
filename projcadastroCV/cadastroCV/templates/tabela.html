@@ -24,6 +24,7 @@
                     <th>Currículo</th>
                     <th>Escolaridade</th>
                     <th>Observações</th>
+                    <th>IP</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,6 +37,7 @@
                         <td><a href="{{ curriculo.arquivo.url }}">Baixar currículo</a></td>
                         <td>{{ curriculo.escolaridade }}</td>
                         <td>{{ curriculo.obs }}</td>
+                        <td>{{ curriculo.ip }}</td>
                     </tr>
                 {% empty %}
                     <tr class="is-hoverable">
