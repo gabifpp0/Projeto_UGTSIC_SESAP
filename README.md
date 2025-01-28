@@ -25,10 +25,10 @@ Certifique-se que você tenha instalado no seu dispositivo:
 
 ## Instalação
 
-No terminal digite os seguintes comandos:
+No terminal da sua IDE, digite os seguintes comandos:
 
 - git clone https://github.com/gabifpp0/Projeto_UGTSIC_SESAP.git
-- py -m pip install django
+- py -m pip install django ou python -m pip install django
 
 ## Rodando a aplicação
 
