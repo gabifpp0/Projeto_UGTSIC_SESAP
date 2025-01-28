@@ -22,6 +22,8 @@ def sendmail_contact(formulario):
         'cargo': formulario.cargo,
         'telefone': formulario.telefone,
         'escolaridade': formulario.get_escolaridade_display(),
+        'ip': formulario.ip,
+        'dh': formulario.dh,
     }
     
     message_body = get_template('enviar.html').render(data)  
