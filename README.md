@@ -35,17 +35,17 @@ No terminal digite os seguintes comandos:
 No terminal digite os seguintes comandos:
 
 - cd Projeto_UGTSIC_SESAP
-- python -m venv venv
+- py -m venv venv ou python -m venv venv
 - ativar o venv: venv\Scripts\activate
 - cd projcadastroCV
-- py manage.py migrate
-- py manage.py runserver
+- py manage.py migrate ou python manage.py migrate
+- py manage.py runserver ou python manage.py runserver
 - Entrar na url que será fornecida pelo django
 
 ## Admin
 
 Para acessar o admin do django vai ser preciso criar um super user. No terminal digite os seguintes comandos:
 
-- py manage.py createsuperuser. Escolha um nome de usuário e senha
+- py manage.py createsuperuser ou python manage.py createsuperuser. Escolha um nome de usuário e senha
 - Após a URL coloque /admin 
 - Entre com as credenciais cadastradas
