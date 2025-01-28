@@ -13,41 +13,41 @@
 <body>
     <div class="container has-text-centered">
         <h1 class="title is-3">Lista de Inscrições</h1>
-    
-        <table class="ui celled table">
-            <thead>
-                <tr class="is-hoverable">
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Telefone</th>
-                    <th>Cargo</th>
-                    <th>Currículo</th>
-                    <th>Escolaridade</th>
-                    <th>Observações</th>
-                    <th>IP</th>
-                    <th>Data</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for curriculo in curriculos %}
+        <div class="table-container">
+            <table class="ui celled table">
+                <thead>
                     <tr class="is-hoverable">
-                        <td>{{ curriculo.nome }}</a></td>
-                        <td>{{ curriculo.email }}</td>
-                        <td>{{ curriculo.telefone }}</td>
-                        <td>{{ curriculo.cargo }}</td>
-                        <td><a href="{{ curriculo.arquivo.url }}">Baixar currículo</a></td>
-                        <td>{{ curriculo.escolaridade }}</td>
-                        <td>{{ curriculo.obs }}</td>
-                        <td>{{ curriculo.ip }}</td>
-                        <td>{{ curriculo.dh|date:"d/m/Y H:i" }}</td>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Cargo</th>
+                        <th>Currículo</th>
+                        <th>Escolaridade</th>
+                        <th>Observações</th>
+                        <th>IP</th>
+                        <th>Data</th>
                     </tr>
-                {% empty %}
-                    <tr class="is-hoverable">
-                        <td colspan="3">Nenhuma inscrição.</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for curriculo in curriculos %}
+                        <tr class="is-hoverable">
+                            <td>{{ curriculo.nome }}</td>
+                            <td>{{ curriculo.email }}</td>
+                            <td>{{ curriculo.telefone }}</td>
+                            <td>{{ curriculo.cargo }}</td>
+                            <td><a href="{{ curriculo.arquivo.url }}">Baixar currículo</a></td>
+                            <td>{{ curriculo.escolaridade }}</td>
+                            <td>{{ curriculo.obs }}</td>
+                            <td>{{ curriculo.ip }}</td>
+                            <td>{{ curriculo.dh|date:"d/m/Y H:i" }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr class="is-hoverable">
+                            <td colspan="9">Nenhuma inscrição.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-</body>
-</html>
+    

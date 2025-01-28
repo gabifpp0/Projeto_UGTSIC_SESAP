@@ -24,13 +24,10 @@ class FormularioForm(forms.ModelForm):
                 valid_extensions = ['.docx', '.doc', '.pdf']
                 if not ext.lower() in valid_extensions:
                     raise forms.ValidationError('Apenas arquivos doc, docx ou pdf são permitidos')
-            
             return arquivo
         except AttributeError:
-            # Este erro ocorre se 'arquivo' for None ou não tiver o atributo 'size' ou 'name'
             raise forms.ValidationError('Nenhum arquivo foi enviado ou o arquivo é inválido.')
         except Exception as e:
-            # Captura qualquer outra exceção e fornece uma mensagem genérica
             raise forms.ValidationError(f'Erro ao validar o arquivo: {str(e)}')
         
     #Validação telefone
@@ -44,7 +41,6 @@ class FormularioForm(forms.ModelForm):
             if len(numeros) < 11:
                 raise forms.ValidationError('O número de telefone deve ter pelo menos 11 dígitos (com DDD)')
             return telefone
-        
         except AttributeError:
             raise forms.ValidationError("Telefone deve ser fornecido.")
         except re.error as e:

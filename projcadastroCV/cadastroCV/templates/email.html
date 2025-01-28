@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-mail Enviado com Sucesso</title>
+    
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/email.css' %}">
+</head>
+<body>
+    <div class="sucesso">
+        <h1>E-mail Enviado com Sucesso!</h1>
+        <p>Seu currículo foi cadastrado e um e-mail foi enviado para o destinatário.</p>
+        <a href="{% url 'home' %}">Voltar para a página inicial</a>
+    </div>
+</body>
+</html>
