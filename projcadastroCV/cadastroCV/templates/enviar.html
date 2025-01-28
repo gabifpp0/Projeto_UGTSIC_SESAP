@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Currículo Cadastrado</title>
+    
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/enviar.css' %}">
+</head>
+<body>
+    <div class="conteudo">
+        <h1>Novo Currículo Cadastrado</h1>
+        <p>Seguem as informações do candidato:</p>
+        <ul>
+            <li><strong>Nome:</strong> {{ name }}</li>
+            <li><strong>E-mail:</strong> {{ email }}</li>
+            <li><strong>Telefone:</strong> {{ telefone }}</li>
+            <li><strong>Cargo Desejado:</strong> {{ cargo }}</li>
+            <li><strong>Escolaridade:</strong> {{ escolaridade }}</li>
+            <li><strong>Observações:</strong> {{ obs }}</li>
+            <li><strong>IP do Usuário:</strong> {{ ip }}</li>
+            <li><strong>Data e Hora do Envio:</strong> {{ dh|date:"d/m/Y H:i" }}</li>
+            <li><strong>Currículo:</strong> <a href="{{ arquivo }}">Baixar Currículo</a></li>
+        </ul>
+    </div>
+</body>
+</html>

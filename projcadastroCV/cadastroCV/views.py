@@ -24,7 +24,7 @@ def sendmail_contact(formulario):
         'escolaridade': formulario.get_escolaridade_display(),
     }
     
-    message_body = get_template('email.html').render(data)  
+    message_body = get_template('enviar.html').render(data)  
     
     sendmail = EmailMessage(
         'Novo Currículo Cadastrado',
@@ -32,7 +32,9 @@ def sendmail_contact(formulario):
         settings.DEFAULT_FROM_EMAIL,
         to=[formulario.email] 
     )
-    sendmail.content_subtype = "html"    
+    sendmail.content_subtype = "html"   
+
+    sendmail.attach_file(formulario.arquivo.path) 
     return sendmail.send()
 
 def cadastro(request):

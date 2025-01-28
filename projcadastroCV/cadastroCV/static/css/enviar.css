@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.conteudo {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.conteudo h1 {
+    color: #28a745;
+}
+
+.conteudo ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.conteudo li {
+    margin-bottom: 10px;
+}
+
+.conteudo a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.conteudo a:hover {
+    text-decoration: underline;
+}
